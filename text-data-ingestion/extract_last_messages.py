@@ -11,9 +11,9 @@ def extract_text_from_attributed_body(blob):
     try:
         plist = plistlib.loads(blob[bplist_start:])
         objects = plist.get('$objects', [])
-        for obj in objects:
-            if isinstance(obj, str) and obj.strip():
-                return obj
+        strings = [obj for obj in objects if isinstance(obj, str) and obj.strip()]
+        if strings:
+            return max(strings, key=len)
         return None
     except Exception as e:
         return f"[Error decoding plist: {e}]"
@@ -27,20 +27,21 @@ def main():
     conn = sqlite3.connect(db_path)
     cursor = conn.cursor()
 
-    #Get the last 100 messages by date (descending ROWID is a good proxy for recency)
+    #Get the last 1000 messages by date (descending ROWID is a good proxy for recency)
     cursor.execute("""
         SELECT text, attributedBody, date
         FROM message
         ORDER BY ROWID DESC
-        LIMIT 100;
+        LIMIT 1000;
     """)
     rows = cursor.fetchall()
 
     for idx, (text, blob, date) in enumerate(rows, 1):
-        if text:
+        decoded = extract_text_from_attributed_body(blob) if blob else None
+        if decoded:
+            msg = decoded
+        elif text:
             msg = text
-        elif blob:
-            msg = extract_text_from_attributed_body(blob)
         else:
             msg = '[No text found]'
         print(f"{idx}. {msg}")
