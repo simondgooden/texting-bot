@@ -1,0 +1,8 @@
+openai
+pymongo
+fastapi
+uvicorn
+python-dotenv
+tqdm
+numpy
+scikit-learn

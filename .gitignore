@@ -1,0 +1,15 @@
+#data
+/data
+
+#env
+.env*
+
+# Python cache and compiled files
+__pycache__/
+*.pyc
+
+# pytest cache
+dotpytest_cache/
+
+# macOS system files
+.DS_Store
