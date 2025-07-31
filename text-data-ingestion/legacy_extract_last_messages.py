@@ -1,3 +1,5 @@
+#Updated to use the imessage-exporter library
+
 import sqlite3
 import plistlib
 import os

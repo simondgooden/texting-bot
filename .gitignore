@@ -1,8 +1,9 @@
-#data
+# Ignore data folder
 /data
 
-#env
+# Ignore environment variable files
 .env*
+.env.local
 
 # Python cache and compiled files
 __pycache__/
@@ -13,3 +14,6 @@ dotpytest_cache/
 
 # macOS system files
 .DS_Store
+
+# Virtual environment
+venv/
