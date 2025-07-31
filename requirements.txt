@@ -1,5 +1,6 @@
 # Python dependencies
 openai
+anthropic
 pymongo
 fastapi
 uvicorn
@@ -9,4 +10,4 @@ numpy
 scikit-learn
 
 # Note: imessage-exporter is a Rust crate that must be installed separately with:
-# cargo install imessage-exporter
+# cargo install imessage-exporter@3.0.1

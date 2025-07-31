@@ -5,6 +5,8 @@ Create a `.env.local` file in the root of the project. Add the following variabl
 
 ```
 OPENAI_API_KEY=your_openai_key
+
+ANTHROPIC_API_KEY=your_anthropic_key #optional for
 ```
 
 
@@ -13,7 +15,8 @@ Set Up:
 1 Start local DB for personal privacy: To run use ```brew services start mongodb/brew/mongodb-community```
 - To stop use ```brew services stop mongodb/brew/mongodb-community```
 
-2 create local env and install dependencies: ```python -m venv .venv source .venv/bin/activate```
+2 create local env and install dependencies: ```python -m venv venv``` 
+-```source venv/bin/activate```
 - ```pip install -r requirements.txt``
 
 3 install the external imessage-importer: ```cargo install imessage-exporter```
