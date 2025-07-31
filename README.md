@@ -16,5 +16,8 @@ Set Up:
 2 create local env and install dependencies: ```python -m venv .venv source .venv/bin/activate```
 - ```pip install -r requirements.txt``
 
-3 instal the external imessage-importer: ```cargo install imessage-exporter```
+3 install the external imessage-importer: ```cargo install imessage-exporter```
 - This is needed to translate your text messages from binary to readable text
+
+4 Import messages: ```python text-data-ingestion/get_data.py --default```
+- Run the following for list of all library commands ```python text-data-ingestion/get_data.py```

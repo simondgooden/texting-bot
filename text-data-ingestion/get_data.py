@@ -18,7 +18,8 @@ def run_imessage_exporter():
             'imessage-exporter',
             '--format', 'txt',
             '--export-path', 'data/output',
-            '--db-path', 'data/chat.db'
+            '--db-path', 'data/chat.db',
+            '--copy-method', 'disabled'
         ]
         
         print("Running imessage-exporter...")
@@ -27,7 +28,7 @@ def run_imessage_exporter():
         result = subprocess.run(cmd, capture_output=True, text=True)
         
         if result.returncode == 0:
-            print("✅ iMessage data exported successfully to data/output/")
+            print("iMessage data exported successfully to data/output/")
             print(result.stdout)
         else:
             print("❌ Export failed:")
